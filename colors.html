@@ -1,0 +1,85 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Colors</title>
+    <script>
+
+       document.addEventListener('DOMContentLoaded', function() {
+        
+        //changing color to red
+
+        document.querySelector('#red').onclick = function(){
+         document.querySelector('#hello').style.color = 'red';
+
+        }
+
+        //changing color to blue
+        
+        document.querySelector('#blue').onclick = function(){
+         document.querySelector('#hello').style.color = 'blue';
+
+        }
+
+        //changing color to green
+        
+        document.querySelector('#green').onclick = function(){
+         document.querySelector('#hello').style.color = 'green';
+
+        }
+
+       });
+
+    </script>
+</head>
+<body>
+    <h1 id="hello">Hello</h1>
+
+    <button id="red">Red</button>
+    <button id="blue">Blue</button>
+    <button id="green">Green</button>
+    
+</body>
+</html>
+
+-->
+
+
+<!--
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Colors</title>
+    <script>
+
+       document.addEventListener('DOMContentLoaded', function() {
+        
+        document.querySelectorAll('button').forEach(function(button){
+           
+            button.onclick = function(){
+                document.querySelector('#hello').style.color = button.dataset.color;
+            }
+        });
+
+       });
+
+    </script>
+</head>
+<body>
+    <h1 id="hello">Hello</h1>
+
+    <button data-color="red">Red</button>
+    <button data-color="blue">Blue</button>
+    <button data-color="green">Green</button>
+    
+</body>
+</html>
+
+-->
+
+
+
+
