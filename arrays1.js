@@ -35,34 +35,34 @@ books = [
 
 
 
-//returns an array of titles
+// //returns an array of titles
 
-function loopAndUpdate(array,updaterFoo){
-    const updatedArray = [];
-    for(let item of array){
-        // console.log(array)
-        // console.log(updatedArray)
-        updatedArray.push(updaterFoo(item))
-    }
-    return updatedArray
-};
+// function loopAndUpdate(array,updaterFoo){
+//     const updatedArray = [];
+//     for(let item of array){
+//         // console.log(array)
+//         // console.log(updatedArray)
+//         updatedArray.push(updaterFoo(item))
+//     }
+//     return updatedArray
+// };
 
-//returns an array of titles
-function titles(item){
-    return item.title
-}
-//returns an arry of prices
-function prices(item){
-    return item.price
-} 
-//returns an array of inventory
-function inventory(item){
-    return item.inventory
-}
+// //returns an array of titles
+// function titles(item){
+//     return item.title
+// }
+// //returns an arry of prices
+// function prices(item){
+//     return item.price
+// } 
+// //returns an array of inventory
+// function inventory(item){
+//     return item.inventory
+// }
 
 
 
-//returns an array of book prices with 50% off(but screws with the prices of the original array as well)
+// //returns an array of book prices with 50% off(but screws with the prices of the original array as well)
 // function halfOff(item){
 //     item.price = Math.floor(item.price/2)
 //     return item
@@ -76,3 +76,38 @@ function halfOff(item){
         itemCopy.price=Math.floor(itemCopy.price/2)
         return itemCopy
     }
+
+
+    //Loops through inventory
+    //find the first object whose condition returns true based on the call bacvk function
+    function loopThroughAndFind (inventory, finder){
+        let result = null
+        for (let item of inventory){
+             if (finder(item) === true){
+                result = item
+                break
+             }
+        }
+        return result
+    
+    }
+
+    //will find a given book
+    function isBook(book){
+        return book.title === 'JavaScript: The Defenitive Guide'
+    }
+
+    //Returns item that needs to be stocked first
+
+    function stockFirst(item){
+        return item.inventory < 3
+    }
+
+
+const reducer = (accumulator, item) => {
+    console.log(accumulator, item)
+    let total = item.price * item.inventory
+    accumulator+= total
+}
+
+let total = books.reduce(reducer, 0)
